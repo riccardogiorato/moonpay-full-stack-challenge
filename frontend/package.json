@@ -1,6 +1,7 @@
 {
   "name": "frontend",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "start": "next build && next start"
