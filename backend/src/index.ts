@@ -17,7 +17,7 @@ http
         res.end();
       } else {
         const { statusCode: coinbaseStatus, body: coinbaseBody } = await request(
-          "https://api.exchange.coinbase.com/products/BTC-USD/book?level=1",
+          "https://api.exchange.coinbase.com/products/BTC-USD/book?level=3",
           {
             method: 'GET',
             headers: {
@@ -25,9 +25,14 @@ http
             }
           }
         );
-
         console.log("coinbaseStatus", coinbaseStatus);
         console.log("coinbaseBody", await coinbaseBody.json());
+
+        const { statusCode: binanceStatus, body: binanceBody } = await request(
+          "https://api.binance.com/api/v3/exchangeInfo?symbol=BTCUSDT",
+        );
+        console.log("binanceStatus", binanceStatus);
+        console.log("binanceBody", await binanceBody.json());
 
         res.setHeader("Content-Type", "application/json");
         res.end(
