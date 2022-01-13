@@ -38,7 +38,6 @@ const Home: NextPage<{ initialCurrencies: MoonpayCurrency[] }> = ({
   }, [toggleSupportedInUs, toggleSupportsTestMode]);
 
   const SortAlphabetical = (sortKey: "name" | "code") => {
-    console.log("SortAlphabetical");
     const sortedCurrencies = currencies.sort((a, b) => {
       // console.log(sortKey, a[sortKey], b[sortKey]);
       if (a[sortKey] < b[sortKey]) return -1;
@@ -49,12 +48,9 @@ const Home: NextPage<{ initialCurrencies: MoonpayCurrency[] }> = ({
   };
 
   const Shuffle = () => {
-    console.log("shuffle");
     const shuffledCurrencies = [...currencies].sort(() => 0.5 - Math.random());
     setCurrencies(shuffledCurrencies);
   };
-
-  console.log(currencies);
 
   return (
     <main className="main">
