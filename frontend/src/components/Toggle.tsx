@@ -11,8 +11,8 @@ export const Toggle: React.FC<ToogleProps> = ({ label, active, onChange }) => {
     onChange && onChange(!active);
   };
   return (
-    <button className="button">
-      <input className="toggle" type="checkbox" onChange={changeHandler} />
+    <button className="button" onClick={changeHandler}>
+      <input className="toggle" type="checkbox" checked={active} readOnly />
       {label}
     </button>
   );

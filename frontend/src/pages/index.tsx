@@ -39,7 +39,6 @@ const Home: NextPage<{ initialCurrencies: MoonpayCurrency[] }> = ({
 
   const SortAlphabetical = (sortKey: "name" | "code") => {
     const sortedCurrencies = currencies.sort((a, b) => {
-      // console.log(sortKey, a[sortKey], b[sortKey]);
       if (a[sortKey] < b[sortKey]) return -1;
       if (a[sortKey] > b[sortKey]) return 1;
       return 0;
@@ -71,14 +70,11 @@ const Home: NextPage<{ initialCurrencies: MoonpayCurrency[] }> = ({
           active={toggleSupportsTestMode}
           onChange={setToggleSupportsTestMode}
         />
+      </div>
+      <div className="controls">
+        <Button onClick={() => SortAlphabetical("name")}>Sort by Name</Button>
 
-        <Button onClick={() => SortAlphabetical("name")}>
-          Sort Alphabetical Name Currency
-        </Button>
-
-        <Button onClick={() => SortAlphabetical("code")}>
-          Sort Alphabetical Symbol Code Currency
-        </Button>
+        <Button onClick={() => SortAlphabetical("code")}>Sort by Symbol</Button>
 
         <Button onClick={Shuffle}>Shuffle Currency</Button>
       </div>
@@ -89,15 +85,14 @@ const Home: NextPage<{ initialCurrencies: MoonpayCurrency[] }> = ({
         ))}
       </div>
 
-      <p className="description">
-        <a
-          href="https://github.com/riccardogiorato"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Created by Riccardo Giorato
-        </a>
-      </p>
+      <a
+        className="description a"
+        href="https://github.com/riccardogiorato"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Created by Riccardo Giorato
+      </a>
     </main>
   );
 };
