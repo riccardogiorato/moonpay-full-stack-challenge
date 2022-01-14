@@ -22,8 +22,8 @@ export const CurrencyCard: React.FC<CurrencyProps> = ({ currency }) => {
     >
       <h3>{currency.name}</h3>
       <p>{currency.code}</p>
-      <p>🇺🇸: {currency.isSupportedInUS ? "✔️" : "❌"} </p>
-      <p>test: {currency.supportsTestMode ? "✔️" : "❌"} </p>
+      <p>USA: {currency.isSupportedInUS ? "✔️" : "❌"} </p>
+      <p>Test Mode: {currency.supportsTestMode ? "✔️" : "❌"} </p>
     </a>
   );
 };

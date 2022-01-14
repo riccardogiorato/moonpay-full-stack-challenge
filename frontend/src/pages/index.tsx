@@ -58,7 +58,11 @@ const Home: NextPage<{ initialCurrencies: MoonpayCurrency[] }> = ({
 
       <div className="controls">
         <Toggle
-          label="Supported in US"
+          label={
+            <div style={{ display: "flex" }}>
+              Supported in USA &nbsp; <img src="/us.svg" alt="" />
+            </div>
+          }
           active={toggleSupportedInUs}
           onChange={setToggleSupportedInUs}
         />

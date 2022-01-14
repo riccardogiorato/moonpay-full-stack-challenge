@@ -15,6 +15,17 @@ a {
   box-sizing: border-box;
 }
 
+.main {
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .controls {
   display: flex;
   justify-content: space-between;
@@ -29,14 +40,20 @@ a {
   background-color: #0f172a;
   color: white;
   border: none;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding: 1rem;
   border-radius: 0.5rem;
   justify-content: center;
   align-items: center;
-  height: 3rem;
   font-weight: bold;
   display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 600px) {
+  .button {
+    flex-direction: row;
+    padding: 1.5rem;
+  }
 }
 
 .toggle {
@@ -49,7 +66,7 @@ a {
   max-width: 800px;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 600px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 1fr;
@@ -60,16 +77,6 @@ a {
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 1fr;
   }
-}
-
-.main {
-  min-height: 100vh;
-  padding: 4rem 2rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .a {
@@ -84,12 +91,12 @@ a {
 .title {
   margin: 4rem 0;
   line-height: 1.5;
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-align: center;
 }
 
 .card {
-  margin: 1rem;
+  margin: 0.5rem;
   padding: 1.5rem;
   text-align: left;
   color: inherit;
@@ -98,6 +105,12 @@ a {
   border-radius: 0.5rem;
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 300px;
+}
+
+@media screen and (min-width: 600px) {
+  .card {
+    margin: 1rem;
+  }
 }
 
 .card:hover,
