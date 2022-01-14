@@ -6,7 +6,7 @@ export const GetBestOfferAsks = ({
 }: {
   requestedAmount: number;
   asks: Pair[];
-}) => {
+}): number => {
   let remainingAmountToBuy = requestedAmount;
   let totalPrice = 0;
   asks.some((ask): boolean => {

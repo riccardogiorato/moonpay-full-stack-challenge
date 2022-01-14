@@ -54,10 +54,6 @@ export default async function handler(
         return responseBody.result;
       },
     },
-    {
-      name: "bitstamp",
-      url: "https://www.bitstamp.net/api/v2/order_book/btcusdt/",
-    },
   ];
   const exchangesAsks: {
     name: string;
@@ -93,3 +89,28 @@ export default async function handler(
 
   res.status(200).json(exchangesAsksSorted[0]);
 }
+
+/*
+EXTRA Exchanges alread working with current implementation
+{
+      name: "bitstamp",
+      url: "https://www.bitstamp.net/api/v2/order_book/btcusdt/",
+    },
+         {
+      name: "gemini",
+      url: "https://api.gemini.com/v1/book/btcusd",
+      getData: (responseBody: any) => {
+        const geminiBook: {
+          asks: PairFromApi[];
+          bids: PairFromApi[];
+        } = { asks: [], bids: [] };
+        responseBody.bids.map((bid: any) => {
+          geminiBook.bids.push([bid.price, bid.amount]);
+        });
+        responseBody.asks.map((ask: any) => {
+          geminiBook.asks.push([ask.price, ask.amount]);
+        });
+        return geminiBook;
+      },
+    }, 
+    */

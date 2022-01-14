@@ -5,6 +5,8 @@ export type Pair = {
   amount: number;
 };
 
+export type PairFromApi = [string, string];
+
 export type OrderBook = {
   asks: Pair[];
   bids: Pair[];
