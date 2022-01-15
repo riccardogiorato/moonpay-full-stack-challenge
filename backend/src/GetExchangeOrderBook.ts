@@ -43,10 +43,10 @@ export const GetExchangeOrderBook = async ({
       });
     }
     if (json.bids) {
-      json.bids.forEach((bids: any) => {
+      json.bids.forEach((bid: any) => {
         bids.push({
-          price: parseFloat(bids[0]),
-          amount: parseFloat(bids[1]),
+          price: parseFloat(bid[0]),
+          amount: parseFloat(bid[1]),
         });
       });
     }
