@@ -78,6 +78,7 @@ export default async function handler(
   );
 
   const exchangesAsksSorted = exchangesAsks
+    .filter((exchange) => exchange.usdtAmount > 0)
     .sort((a, b) => a.usdtAmount - b.usdtAmount)
     .map((exchange) => ({
       exchange: exchange.name,
@@ -87,6 +88,11 @@ export default async function handler(
 
   console.log(exchangesAsksSorted);
 
+  if (exchangesAsksSorted.length === 0) {
+    return res.status(500).json({
+      error: "Not enough asks to buy this amount from available exchanges!",
+    });
+  }
   res.status(200).json(exchangesAsksSorted[0]);
 }
 
