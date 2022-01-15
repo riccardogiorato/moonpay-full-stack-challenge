@@ -1,5 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "../components/Button";
 import { CurrencyCard } from "../components/CurrencyCard";
 import { Toggle } from "../components/Toggle";
@@ -10,6 +10,7 @@ export type MoonpayCurrency = {
   name: string;
   supportsTestMode: boolean;
   isSupportedInUS: boolean;
+  hidden?: boolean;
 };
 
 const Home: NextPage<{ initialCurrencies: MoonpayCurrency[] }> = ({
@@ -22,19 +23,14 @@ const Home: NextPage<{ initialCurrencies: MoonpayCurrency[] }> = ({
   const [toggleSupportsTestMode, setToggleSupportsTestMode] = useState(false);
 
   useEffect(() => {
-    const filteredCurrencies = initialCurrencies.filter((currency) => {
+    const filteredCurrencies = currencies.map((currency) => {
       const filterUs = toggleSupportedInUs && !currency.isSupportedInUS;
       const filterTestMode =
         toggleSupportsTestMode && !currency.supportsTestMode;
-      if (filterUs || filterTestMode) return false;
-      return true;
+
+      return { ...currency, hidden: filterUs || filterTestMode };
     });
-    if (
-      filteredCurrencies !== currencies &&
-      filteredCurrencies.length !== currencies.length
-    ) {
-      setCurrencies(filteredCurrencies);
-    }
+    setCurrencies(filteredCurrencies);
   }, [toggleSupportedInUs, toggleSupportsTestMode]);
 
   const SortAlphabetical = (sortKey: "name" | "code") => {
@@ -80,9 +76,11 @@ const Home: NextPage<{ initialCurrencies: MoonpayCurrency[] }> = ({
       </div>
 
       <div className="grid">
-        {currencies.map((currency) => (
-          <CurrencyCard key={currency.id} currency={currency} />
-        ))}
+        {currencies
+          .filter((currency) => !currency.hidden)
+          .map((currency) => (
+            <CurrencyCard key={currency.id} currency={currency} />
+          ))}
       </div>
 
       <a
