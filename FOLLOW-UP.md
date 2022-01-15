@@ -59,14 +59,12 @@ Learning more about asks and bids was awesome!
 
 It was the most pleasurable test I have done in a long time, especially being able to work with MoonPay API and other APIs felt great and very realistic. 
 
-I would only suggest adding "Gitpod" support.
-
-Gtipod is a tool to create automated dev environments and it's very useful for people that can't run Docker locally to check if their code is working.
+I would only suggest adding "Gitpod" support. Gitpod is a tool to create automated dev environments and it's very useful for people that can't run Docker locally to check if their code is working.
 
 #### Why Gitpod?
 
-In the past I mentored various engineers/developers that had this problem with Docker, not being able to execute the code locally and many other times having their laptops become super slow when starting Docker.
+In the past I mentored various engineers/developers that had many problems with Docker, not being able to execute the Docker instances locally and many other times having their laptops become super slow when they were able to start Docker.
 
-Gitpod would solve all these issue cause you only need a web browser, all the code actually runs in a remote linux machine. It's free up to 40 hours every month for everyone: https://www.gitpod.io/pricing
+Gitpod would solve all these issue cause you only need a web browser, all the code & Docker would actually run in a remote linux machine. It's free up to 40 hours every month for everyone: https://www.gitpod.io/pricing
 
 I already added the ".gitpod.yml" to the root of the project, it's a file that contains the gitpod configuration to work with the current docker compose and the two apps.
