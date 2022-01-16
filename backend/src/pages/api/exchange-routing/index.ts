@@ -55,6 +55,7 @@ export default async function handler(
       },
     },
   ];
+
   const exchangesAsks: {
     name: string;
     asks: Pair[];
@@ -81,9 +82,9 @@ export default async function handler(
     .filter((exchange) => exchange.usdtAmount > 0)
     .sort((a, b) => a.usdtAmount - b.usdtAmount)
     .map((exchange) => ({
-      exchange: exchange.name,
       btcAmount: amountBtc,
       usdAmount: exchange.usdtAmount,
+      exchange: exchange.name,
     }));
 
   console.log(exchangesAsksSorted);
